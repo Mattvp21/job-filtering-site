@@ -10,6 +10,7 @@ import p7 from '../images/shortly.svg'
 import p8 from '../images/insure.svg'
 import p9 from '../images/eyecam-co.svg'
 import p10 from '../images/the-air-filter-company.svg'
+import e from 'cors'
 
 let images = {
     p1,p2,p3,p4,p5,p6,p7,p8,p9,p10
@@ -36,24 +37,33 @@ export default function Joblist({jobs,setJobs,setFilteredJobs, filteredJobs}) {
         setFilteredJobs([...filteredJobs,job.level])
      }
 
-     const handleLanguageFilter = (job, e) => {
-        const filteredRole = job.languages.filter(item => item.languages === job.languages)
-        if(filteredJobs.includes(job.languages)) {
+     const handleLanguageFilter = (job) => {
+
+        console.log(job)
+        const filteredRole = jobs.filter(item => item.languages.includes(job))
+        
+        if(filteredJobs.includes(job)) {
             return;
         }
+
+        // console.log(filteredRole)
         setJobs(filteredRole)
         
-        setFilteredJobs([...filteredJobs,job.languages])
+        setFilteredJobs([...filteredJobs,job])
      }
 
      const handleToolFilter = (job) => {
-        const filteredRole = job.tools.filter(item => item.tools === job.tools)
-        if(filteredJobs.includes(job.tools)) {
+        console.log(job)
+        const filteredRole = jobs.filter(item => item.tools.includes(job))
+        
+        if(filteredJobs.includes(job)) {
             return;
         }
+
+        // console.log(filteredRole)
         setJobs(filteredRole)
         
-        setFilteredJobs([...filteredJobs,job.tools])
+        setFilteredJobs([...filteredJobs,job])
      }
 
      
@@ -96,12 +106,10 @@ export default function Joblist({jobs,setJobs,setFilteredJobs, filteredJobs}) {
                     <ul className='flex flex-wrap'>
                     <li onClick={() => handleRoleFilter(job)} className='bg-filteringLightCyan hover:bg-primaryCyan hover:text-white p-2 rounded md:ml-3 ml-1'>{job.role}</li>
                     <li onClick={() => handleLevelFilter(job)} className='bg-filteringLightCyan hover:bg-primaryCyan hover:text-white p-2 rounded md:ml-3 ml-1'>{job.level}</li>
-                    {job.languages.map((language) => {
-                        return <li onClick={() => handleLanguageFilter(job)} className='bg-filteringLightCyan hover:bg-primaryCyan hover:text-white p-2 rounded md:ml-3 ml-1'>{language}</li>
-                    })}
-                    {job.tools.map((language) => {
-                        return <li onClick={() => handleToolFilter(job)}  className='bg-filteringLightCyan hover:bg-primaryCyan hover:text-white p-2 rounded md:ml-3 ml-1'>{language}</li>
-                    })}
+                    {job.languages.map((language,index) =>  <li key={index} onClick={() => handleLanguageFilter(language)} className='bg-filteringLightCyan hover:bg-primaryCyan hover:text-white p-2 rounded md:ml-3 ml-1'>{language}</li>
+                    )}
+                    {job.tools.map((tool, index) => <li key={index} onClick={() => handleToolFilter(tool)} className='bg-filteringLightCyan hover:bg-primaryCyan hover:text-white p-2 rounded md:ml-3 ml-1'>{tool}</li>
+                    )}
                     </ul>
                </div>
                </div>

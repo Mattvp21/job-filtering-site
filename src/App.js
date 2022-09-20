@@ -1,5 +1,5 @@
 import data from './data.json'
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import './App.css';
 import Filterbar from './components/Filterbar';
 import Header from './components/Header';
@@ -14,7 +14,9 @@ import axios from 'axios';
 function App() {
   
   const [filteredJobs, setFilteredJobs] = useState([])
-  const [jobs, setJobs] = useState(data)
+  const [jobs, setJobs] = useState([])
+
+  useEffect(() => setJobs(data), [])
  
   return (
     <div>
