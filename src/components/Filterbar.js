@@ -8,12 +8,12 @@ export default function Filterbar({jobs, setJobs, setFilteredJobs, filteredJobs}
         setJobs(data)
     }
     
-    const removeJobHandler = (job) => {
-        setFilteredJobs(filteredJobs.filter((x,i) => x !== job))
+    // const removeJobHandler = (job) => {
+    //     setFilteredJobs(filteredJobs.filter((x,i) => x !== job))
         
-        setJobs(data.filter((x,i) => !x.role.includes(filteredJobs) || !x.level.includes(filteredJobs)))
+    //     setJobs(data.filter((x,i) => !x.role.includes(filteredJobs) || !x.level.includes(filteredJobs) || !x.languages.includes(filteredJobs) || !x.tools.includes(filteredJobs)))
       
-    }
+    // }
 
    
     if(filteredJobs.length > 0) {
@@ -24,7 +24,7 @@ export default function Filterbar({jobs, setJobs, setFilteredJobs, filteredJobs}
                         <ul className="flex flex-wrap gap-4">
                         {
                             filteredJobs.map((job) => {
-                             return   <li onClick={() => removeJobHandler(job)} className='bg-filteringLightCyan text-primaryCyan hover:bg-primaryCyan hover:text-white p-2 rounded md:ml-3 ml-1'>{job}</li>
+                             return   <li className='bg-filteringLightCyan text-primaryCyan hover:bg-primaryCyan hover:text-white p-2 rounded md:ml-3 ml-1'>{job}</li>
                             })
                         }
                         </ul>
