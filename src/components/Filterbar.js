@@ -9,10 +9,10 @@ export default function Filterbar({jobs, setJobs, setFilteredJobs, filteredJobs}
     }
     
     const removeJobHandler = (job) => {
-    //    const newArray = filteredJobs.filter((x,i) => x !== job)
-    //    const newArray2 = filteredJobs.filter(x => !x.includes(job))
-    //    setFilteredJobs(newArray)
-    //    setJobs(newArray2)
+        setFilteredJobs(filteredJobs.filter((x,i) => x !== job))
+        
+        setJobs(data.filter((x,i) => !x.role.includes(filteredJobs) || !x.level.includes(filteredJobs)))
+      
     }
 
    

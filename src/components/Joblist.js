@@ -53,8 +53,8 @@ export default function Joblist({jobs,setJobs,setFilteredJobs, filteredJobs}) {
      }
 
      const handleToolFilter = (job) => {
-        console.log(job)
-        const filteredRole = jobs.filter(item => item.tools.includes(job))
+    console.log(job)
+        const filteredRole = jobs.filter(item => item.languages.includes(job))
         
         if(filteredJobs.includes(job)) {
             return;
