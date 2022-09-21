@@ -1,5 +1,5 @@
 import data from '../data.json'
-import { useContext } from 'react'
+
 
 export default function Filterbar({jobs, setJobs, setFilteredJobs, filteredJobs}) {
    

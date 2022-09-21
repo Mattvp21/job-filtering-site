@@ -1,5 +1,4 @@
-import { useContext, useState } from 'react'
-import data from '../data.json'
+
 import p1 from "../images/photosnap.svg"
 import p2 from '../images/manage.svg'
 import p3 from '../images/account.svg'
@@ -10,11 +9,7 @@ import p7 from '../images/shortly.svg'
 import p8 from '../images/insure.svg'
 import p9 from '../images/eyecam-co.svg'
 import p10 from '../images/the-air-filter-company.svg'
-import e from 'cors'
 
-let images = {
-    p1,p2,p3,p4,p5,p6,p7,p8,p9,p10
-}
 export default function Joblist({jobs,setJobs,setFilteredJobs, filteredJobs}) {
    
    

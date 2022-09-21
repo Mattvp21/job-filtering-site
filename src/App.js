@@ -1,10 +1,10 @@
 import data from './data.json'
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Filterbar from './components/Filterbar';
 import Header from './components/Header';
 import Joblist from './components/Joblist';
-import axios from 'axios';
+
 
 
 
